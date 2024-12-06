@@ -1,0 +1,65 @@
+img {
+    width: 47%; 
+}
+.d {
+    justify-content: space-around;
+    display:flex;
+}
+body {
+    
+    background-color: lightblue;
+}
+.stat {
+    text-align: center;
+}
+
+p {
+    font-size: large;
+}
+
+.profile {
+    margin-left: 80%;
+    font-size: large;
+    background-color: aqua;
+    padding-left: 1vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    margin-bottom: 0.7vw;   
+    
+}
+
+.feed_control {
+    width: 12vw;
+    height: 3vw;
+    font-size: large;
+}
+
+.btns {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    margin-left: 20%;
+    width: 50%;
+}
+
+.feed_state {
+    font-size: large;
+    margin-top: 1vw;
+}
+
+.cat_indicator {
+    display: flex;
+    margin: 0;
+    font-size: large;
+    margin-left: 40%;
+    margin-top: 1vw;
+}
+
+.image_sec {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.camera_image {
+    width: 100%;
+}

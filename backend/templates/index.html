@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Cat tracker</title>
+</head>
+<body>
+    <div class="profile">
+        <div class="row">	
+            Logged in : <strong>{{session.name}}</strong> | <a href="/logout"> Logout</a>
+        </div>
+    </div>
+    <div class="d">
+        <img src="{{ url_for('static', filename='graph.jpg') }}" alt="Graph">
+        {% if session.privilege in ['vip', 'admin'] %}
+        <div class="image_sec">
+            <img class="camera_image" src="{{ url_for('static', filename='camera_image.jpg') }}" alt="Camera image">
+            <span class="cat_indicator">{{ 'There is a cat!' if statistic.cat_present else 'There is no cat :('}}</span>
+        </div>
+        {% endif %}
+    </div>
+    <div class="stat">
+        <h1>Statistics</h1>
+        <p>Cat on camera / total time: {{ statistic.cat_ratio }}</p>
+        <p>Total filming time: {{ statistic.filming_time }}</p>
+        <p>Time elapsed since last cat seen: {{ statistic.time_from_last_cat }}</p>
+    </div>
+    {% if session.privilege == 'admin' %}
+    <div class="d btns">
+        <p class="feed_state">{{ 'Feeding' if statistic.feeding else 'Not feeding' }}</p>
+        <form action="/feed/1" method="POST">
+            <input class="feed_control" type="submit" value="Feed">
+        </form>
+        <form action="/feed/0" method="POST">
+            <input class="feed_control" type="submit" value="Stop feeding">
+        </form>
+    </div>
+    {% endif %}
+</body>
+</html>
